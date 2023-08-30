@@ -1,0 +1,11 @@
+{
+    "dev": {
+        "app_function": "main.app",
+        "aws_region": "eu-west-2",
+        "profile_name": "default",
+        "project_name": "svm-hdp-aws",
+        "runtime": "python3.9",
+        "s3_bucket": "zappa-pd-me-thesis-svm-hdp-aws-deployment",
+        "slim_handler": true
+    }
+}
