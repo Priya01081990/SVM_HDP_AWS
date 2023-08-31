@@ -1,4 +1,4 @@
-
+import os
 from sklearn import svm
 import pandas as pd
 import pickle
@@ -26,13 +26,15 @@ if __name__ == '__main__':
         cache_size=200000,
         class_weight='balanced',
     )
-    df = pd.read_csv("./data/heart.csv")
-    for c in df.columns:
-        if c in SCALE.keys():
-            df[c] =[(x - SCALE[c]) for x in df[c].tolist()]
-    target_col_name = "target"
-    X = df[[c for c in df.columns if c != target_col_name]].to_numpy()
-    Y = df[[target_col_name]].to_numpy()
-    svm_rbf.fit(X=X, y=Y)
-    pickle.dump(svm_rbf, open("SVM_hdp.pickle", "wb"))
+    os.system("aws s3 cp s3://publicdatasetsthesis/heart.csv ./data/heart.csv")
+    if os.path.exists("./data/heart.csv"):
+        df = pd.read_csv("./data/heart.csv")
+        for c in df.columns:
+            if c in SCALE.keys():
+                df[c] =[(x - SCALE[c]) for x in df[c].tolist()]
+        target_col_name = "target"
+        X = df[[c for c in df.columns if c != target_col_name]].to_numpy()
+        Y = df[[target_col_name]].to_numpy()
+        svm_rbf.fit(X=X, y=Y)
+        pickle.dump(svm_rbf, open("SVM_hdp.pickle", "wb"))
 
