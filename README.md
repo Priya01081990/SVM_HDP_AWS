@@ -11,11 +11,11 @@ It assumes that user has
 # Steps
 
 Following are the steps to deploy the saved ML model as an AWS Lambda API
-    1. Download the project from git
-    2. cd 'project_dir'
-    3. Activate 'venv' and install from 'install.txt'
-    4. run `python ml.py` to create the model (SVM_hdp.pickle) in the current project directory
-    4. run 'zappa deploy7update '__Project__NAME__' (e.g. dev)
+    - Download the project from git
+    - cd 'project_dir'
+    - Activate 'venv' and install from 'install.txt'
+    - run `python ml.py` to create the model (SVM_hdp.pickle) in the current project directory
+    - run 'zappa deploy7update '__Project__NAME__' (e.g. dev)
 
 
 # How to interact with the API
