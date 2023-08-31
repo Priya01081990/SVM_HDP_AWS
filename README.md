@@ -11,6 +11,7 @@ It assumes that user has
 # Steps
 
 Following are the steps to deploy the saved ML model as an AWS Lambda API
+
     - Download the project from git
     - cd 'project_dir'
     - Activate 'venv' and install from 'install.txt'
